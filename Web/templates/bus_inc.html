@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Busqueda Incremental{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <h3 align="left">Método de Búsqueda Incremental</h3>
+    <div class="form-group">
+        <label for="fun">Función</label>
+        <input type="text" class="form-control" id="fun" name="fun" placeholder="Ingrese función"/>
+        <label for="x1">X0</label>
+        <input type="text" class="form-control" id="x1" name="x1" placeholder="Ingrese número"/>
+        <label for="delta">Delta</label>
+        <input type="text" class="form-control" id="delta" name="delta" placeholder="Ingrese número"/>
+        <label for="niter">Número iteraciones</label>
+        <input type="text" class="form-control" id="niter" name="niter" placeholder="Ingrese número"/>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+<br>
+<br>
+{{ resultado }}
+{% endblock %}
