@@ -1,11 +1,12 @@
 from flask import Blueprint, render_template, request
 
-SNENL = Blueprint('SNENL', __name__)
+singular = Blueprint('singular', __name__)
 
 from .metodos.Bi import bi
 
-@SNENL.route('/bus-inc', methods=['GET', 'POST'])
+@singular.route('/bus-inc', methods=['GET', 'POST'])
 def bus_inc():
+    result = "0"
     if request.method == 'POST':
         fun = request.form.get('fun')
         x1 = request.form.get('x1')
