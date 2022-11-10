@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Busqueda Incremental{% endblock %}
+
+{% block content %}
+<form id="inputField" role="form">
+    <input type="text" name="field00" size="3">
+    <input type="text" name="field01" size="3">
+    <input type="text" name="field02" size="3">
+    <input type="text" name="field03" size="3">
+    <br>
+    <input type="text" name="field10" size="3">
+    <input type="text" name="field11" size="3">
+    <input type="text" name="field12" size="3">
+    <input type="text" name="field13" size="3">
+    <br>
+    <input type="text" name="field20" size="3">
+    <input type="text" name="field21" size="3">
+    <input type="text" name="field22" size="3">
+    <input type="text" name="field23" size="3">
+    <br>
+    <input type="button" onclick="calcJacobian()" value="calculate" name="calculate" class="btn btn-info">
+  </form>
+{% endblock %}
