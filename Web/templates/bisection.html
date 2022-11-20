@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Bisección{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h3 align="left">Método de Bisección</h3>
+    <div class="row">
+        <div class="col-md-3 col-lg-3" style="background-color:white">
+            <form method="POST">
+                <div class="form-group">
+                    <br>
+                    <label for="fun">Función</label>
+                    <input type="text" class="form-control" id="fun" name="fun" placeholder="Ingrese función"/>
+                    <label for="a">a</label>
+                    <input type="text" class="form-control" id="a" name="a" placeholder="Ingrese número"/>
+                    <label for="b">b</label>
+                    <input type="text" class="form-control" id="b" name="b" placeholder="Ingrese número"/>
+                    <label for="tol">Tolerancia</label>
+                    <input type="text" class="form-control" id="tol" name="tol" placeholder="Ingrese número"/>
+                    <label for="niter">Número iteraciones</label>
+                    <input type="text" class="form-control" id="niter" name="niter" placeholder="Ingrese número"/>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Evaluar</button>
+                <br />
+            </form>
+        </div>
+        <div class="col-md-4 col-lg-4" style="background-color:white">
+        </div>
+        <div class="col-md-5 col-lg-10" style="background-color:lightgray">
+            <table>                
+                <tr>
+                    <td> n </td>
+                    <td> a</td>
+                    <td> m </td>
+                    <td> b </td>
+                    <td> fm </td>
+                    <td> E </td>
+                </tr>  
+                {% for i in n %}
+                <tr>
+                    <td> {{ n[i] }} </td>
+                    <td> {{ a[i] }} </td>
+                    <td> {{ m[i] }} </td>
+                    <td> {{ b[i] }} </td>
+                    <td> {{ fm[i] }} </td>
+                    <td> {{ E[i] }} </td>
+                </tr>    
+                {% endfor %}
+            </table>
+            
+            {% endblock %}
+        </div>
+    </div>
+    
+</div>
+
+
+
+<br>

@@ -14,9 +14,11 @@ tol = float(input())
 print("niter:")
 niter = float(input())
 print("function:")
-fun = input()"""
+fun = input()
+"""
 
-def biseccion(a, b, tol, niter, fun): 
+
+def regla_falsa(a, b, tol, niter, fun):		
 	an=[]
 	bn=[]
 	n=[]
@@ -28,9 +30,9 @@ def biseccion(a, b, tol, niter, fun):
 	tol=float(tol)
 	niter=float(niter)
 	x=a
-	fa = eval(fun)
+	fa=eval(fun)
 	x=b
-	fb = eval(fun)
+	fb=eval(fun)
 
 	if fa==0:
 		s=a
@@ -43,7 +45,7 @@ def biseccion(a, b, tol, niter, fun):
 	elif fb*fa<0:
 		c=0
 		n.append(c+1)
-		xm=(a+b)/2
+		xm=b-((fb*(b-a))/(fb-fa))
 		x=xm                 
 		fmi=eval(fun)
 		an.append(a)
@@ -57,11 +59,11 @@ def biseccion(a, b, tol, niter, fun):
 					x=b                 
 					fb=eval(fun)
 			else:
-				a=xm
-				x=a
-				fb=eval(fun)
+					a=xm
+					x=a
+					fa=eval(fun)
 			xa=xm
-			xm=(a+b)/2
+			xm=b-((fb*(b-a))/(fb-fa))
 			x=xm 
 			an.append(a)
 			bn.append(b)
@@ -96,8 +98,4 @@ def biseccion(a, b, tol, niter, fun):
 	else:
 		print("El intervalo es inadecuado")
 	return n, an, bn, m, fm, E
-
-"""result = biseccion(0,1, 1e-7, 100, "math.log(math.sin(x)**2 + 1)-(1/2)")
-print(result)
-print(type(result))"""
 
