@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Punto Fijo{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h3 align="left">Método de punto fijo</h3>
+    <div class="row">
+        <div class="col-md-3 col-lg-3" style="background-color:white">
+            <form method="POST">
+                <div class="form-group">
+                    <br>
+                    <label for="f">Función F</label>
+                    <input type="text" class="form-control" id="f" name="f" placeholder="Ingrese función"/>
+                    <label for="g">Función G</label>
+                    <input type="text" class="form-control" id="g" name="g" placeholder="Ingrese función"/>
+                    <label for="a">x0</label>
+                    <input type="text" class="form-control" id="x0" name="x0" placeholder="Ingrese número"/>
+                    <label for="tol">Tolerancia</label>
+                    <input type="text" class="form-control" id="tol" name="tol" placeholder="Ingrese número"/>
+                    <label for="niter">Número iteraciones</label>
+                    <input type="text" class="form-control" id="niter" name="niter" placeholder="Ingrese número"/>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Evaluar</button>
+                <br />
+            </form>
+        </div>
+        <div class="col-md-4 col-lg-4" style="background-color:white">
+        </div>
+        <div class="col-md-5 col-lg-10" style="background-color:lightgray">
+            <table>                
+                <tr>
+                    <td> n </td>
+                    <td> xn</td>
+                    <td> fn </td>
+                    <td> gn </td>
+                    <td> E </td>
+                </tr>  
+                {% for i in n %}
+                <tr>
+                    <td> {{ n[i] }} </td>
+                    <td> {{ xn[i] }} </td>
+                    <td> {{ fn[i] }} </td>
+                    <td> {{ gn[i] }} </td>
+                    <td> {{ E[i] }} </td>
+                </tr>    
+                {% endfor %}
+            </table>
+            
+            {% endblock %}
+        </div>
+    </div>
+    
+</div>
+
+
+
+<br>
