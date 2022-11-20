@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Newton Raíces múltiples{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h3 align="left">Método de Newton para raíces múltiples</h3>
+    <div class="row">
+        <div class="col-md-3 col-lg-3" style="background-color:white">
+            <form method="POST">
+                <div class="form-group">
+                    <br>
+                    <label for="fun">Función F</label>
+                    <input type="text" class="form-control" id="fun" name="fun" placeholder="Ingrese función"/>
+                    <label for="df">Función F' (Primera derivada de F)</label>
+                    <input type="text" class="form-control" id="df" name="df" placeholder="Ingrese función"/>
+                    <label for="df2">Función F'' (Segunda derivada de F)</label>
+                    <input type="text" class="form-control" id="df2" name="df2" placeholder="Ingrese función"/>
+                    <label for="x0">x0</label>
+                    <input type="text" class="form-control" id="x0" name="x0" placeholder="Ingrese número"/>
+                    <label for="tol">Tolerancia</label>
+                    <input type="text" class="form-control" id="tol" name="tol" placeholder="Ingrese número"/>
+                    <label for="niter">Número iteraciones</label>
+                    <input type="text" class="form-control" id="niter" name="niter" placeholder="Ingrese número"/>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Evaluar</button>
+                <br />
+            </form>
+        </div>
+        <div class="col-md-4 col-lg-4" style="background-color:white">
+        </div>
+        <div class="col-md-5 col-lg-10" style="background-color:lightgray">
+            <table>                
+                <tr>
+                    <td> n </td>
+                    <td> xn</td>
+                    <td> fn </td>
+                    <td> E </td>
+                </tr>  
+                {% for i in n %}
+                <tr>
+                    <td> {{ n[i] }} </td>
+                    <td> {{ xn[i] }} </td>
+                    <td> {{ fn[i] }} </td>
+                    <td> {{ E[i] }} </td>
+                </tr>    
+                {% endfor %}
+            </table>
+            
+            {% endblock %}
+        </div>
+    </div>
+    
+</div>
+
+
+
+<br>
