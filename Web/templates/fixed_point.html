@@ -28,14 +28,25 @@
         <div class="col-md-4 col-lg-4" style="background-color:white">
         </div>
         <div class="col-md-5 col-lg-10" style="background-color:lightgray">
-            <table>                
+            <table>      
                 <tr>
-                    <td> n </td>
-                    <td> xn</td>
-                    <td> fn </td>
-                    <td> gn </td>
-                    <td> E </td>
-                </tr>  
+                    <colgroup>
+                    
+                    <colgroup span="1" style="background: rgba(255, 128, 0, 0.3); border: 1px solid rgba(200, 100, 0, 0.3);">
+                    
+                    <colgroup span="1" style="background: rgba(255, 0, 128, 0.3); border: 1px solid rgba(200, 100, 0, 0.3);">
+    
+                    <colgroup span="1" style="background: rgba(0, 128, 255, 0.3); border: 1px solid rgba(200, 100, 0, 0.3);">
+                    
+                    <colgroup span="1" style="background: rgba(0, 255, 128, 0.3); border: 1px solid rgba(200, 100, 0, 0.3);">   
+              
+                    <th> n </th>
+                    <th> xn</th>
+                    <th> fn </th>
+                    <th> gn </th>
+                    <th> E </th>
+              
+                </tr>
                 {% for i in n %}
                 <tr>
                     <td> {{ n[i] }} </td>
