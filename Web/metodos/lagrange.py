@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 fi = np.array([1, 1.6, 1.7, 2.0])"""
 """xi = [-1,0,1,3,4]
 fi = [15.5,3,7.5,8,1]"""
-def Lagrange(xi, fi, n):
-    # PROCEDIMIENTO
-    # Polinomio de Lagrange
+def lagi(xi, fi):
+    
+    n = len(xi)
     x = sym.Symbol('x')
     polinomio = 0
     divisorL = np.zeros(n, dtype = float)
@@ -21,7 +21,6 @@ def Lagrange(xi, fi, n):
                 numerador = numerador*(x-xi[j])
                 denominador = denominador*(xi[i]-xi[j])
         terminoLi = numerador/denominador
-
         polinomio = polinomio + terminoLi*fi[i]
         divisorL[i] = denominador
 

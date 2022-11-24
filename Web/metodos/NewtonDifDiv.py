@@ -6,8 +6,9 @@ def NewtonDifDiv(x, y):
     xi = np.array(x)
     fi = np.array(y)
 
-    titulo = ['i   ','xi  ','fi  ']
+    
     n = len(xi)
+    titulo = ["i   ","xi  ","fi  "]
     ki = np.arange(0,n,1)
     tabla = np.concatenate(([ki],[xi],[fi]),axis=0)
     tabla = np.transpose(tabla)
@@ -52,8 +53,8 @@ def NewtonDifDiv(x, y):
     b = np.max(xi)
     pxi = np.linspace(a,b,muestras)
     pfi = px(pxi)
-
-    return np.array(titulo), tabla, dDividida, polinomio, polisimple
+    print(type(tabla), type(titulo))
+    return titulo, tabla, dDividida, polinomio, polisimple
 #    # SALIDA
 #    print('Tabla Diferencia Dividida')
 #    print([titulo])

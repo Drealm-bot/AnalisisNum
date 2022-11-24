@@ -5,6 +5,7 @@ interpol = Blueprint('interpol', __name__)
 
 from .metodos.Vandermonde import vander
 from .metodos.NewtonDifDiv import NewtonDifDiv
+from .metodos.lagrange import lagi
 
 @interpol.route('/vandermonde', methods=['GET', 'POST'])
 def vandermonde():
@@ -30,6 +31,21 @@ def newton_int():
         y = np.array(request.form.getlist('y'), dtype='float64')
 
         result = NewtonDifDiv(x, y)
-        return render_template("newton_int.html", titulo=result[0], table=result[1], dDiv=result[2], pol=result[3], psim=result[4], n = size, bol = 1)
+        return render_template("newton_int.html", a=result[0], t=result[1], dDiv=result[2], pol=result[3], psim=result[4], lena = len(result[0]), n = size, bol = 1)
     else:
         return render_template("newton_int.html", bol = 0)
+
+@interpol.route('/lagrange', methods=['GET', 'POST'])
+def lagrange():
+    if request.method == 'POST':
+        np.printoptions(precision=4)
+        size = int(request.form.get('size'))
+
+        x = np.array(request.form.getlist('x'), dtype='float64')
+        
+        y = np.array(request.form.getlist('y'), dtype='float64')
+
+        result = lagi(x, y)
+        return render_template("lagrange.html", result=result, bol = 1)
+    else:
+        return render_template("lagrange.html", bol = 0)
