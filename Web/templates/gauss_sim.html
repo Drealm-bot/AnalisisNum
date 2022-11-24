@@ -23,10 +23,17 @@
       </div>
       <div class="col-md-1 col-lg-1" style="background-color:white">
       </div>
+      {% if bol > 0 %}
         <div class="col-md-5 col-lg-5" style="background-color:lightgray">
             <br>
-            {{ resultado }}
+            Matriz Ab:<br> 
+            {% for k in range(n) %}
+            {{ Ab[k] }}<br>
+            {% endfor %}<br>
+            x:<br>
+            {{ x }}<br><br>
         </div>
+        {% endif %}
     </div>
   </form>
   </div>
