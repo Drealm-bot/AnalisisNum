@@ -104,9 +104,9 @@ def graph():
     if request.method == 'POST':
         fun = request.form.get('fun')
         grafica = graficador(fun)
-        return render_template("graph.html", grafica=grafica)
+        return render_template("graph.html", grafica=grafica, bol = 1)
     else:
-        return render_template("graph.html")
+        return render_template("graph.html", bol = 0)
 
 
 

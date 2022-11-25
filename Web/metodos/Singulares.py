@@ -197,7 +197,7 @@ def regla_falsa(a, b, tol, niter, fun):
 	else:
 		print("El intervalo es inadecuado")
 	return n, an, bn, m, fm, E
-
+    
 def punto_fijo(x0, tol, niter, f, g):	
         n=[]
         xn=[]
