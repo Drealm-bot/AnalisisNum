@@ -20,8 +20,11 @@ def jacobi_seid(x0, A, b, Tol, niter, met, n):
         T=np.dot(np.linalg.inv(D),(L+U))
         C=np.dot(np.linalg.inv(D),b)
     if met==1:
-            T=np.dot(np.linalg.inv(D-L),(U))
-            C=np.dot(np.linalg.inv(D-L),b)
+        T=np.dot(np.linalg.inv(D-L),(U))
+        C=np.dot(np.linalg.inv(D-L),b)
+    if met==2:
+        T=np.dot(np.linalg.inv(D-(w*L)),(((1-w)*D)+(w*U)))
+        C=w*np.dot(np.linalg.inv(D-(w*L)),b)
     spectralrad = max(abs(np.linalg.eigvals(T)))
     while error>Tol and c<niter:
         x1=np.dot(T,x0)+C

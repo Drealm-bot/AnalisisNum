@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request
 
 singular = Blueprint('singular', __name__)
 
-from .metodos.Singulares import bi, biseccion, regla_falsa, punto_fijo, newton_raphson, secante, newtonRM
+from .metodos.Singulares import *
 
 @singular.route('/bus-inc', methods=['GET', 'POST'])
 def bus_inc():

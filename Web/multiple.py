@@ -179,7 +179,32 @@ def jacobi_seidel():
         for i in range(size-1):
             b = np.append(b, float(request.form.get('b'+str(i+1))))
         
-        result = jacobi_seid(x0, a, b, tol, niter, met, size)
+        result = jacobi_seid(x0, a, b, tol, niter, met, size, 0)
+        return render_template("jacobi_seidel.html", T=result[0], C=result[1], niter = result[2], sol = result[3], E = result[4], bol = 1, size=np.size(result[0]))
+    else:
+        return render_template("jacobi_seidel.html", bol = 0)
+
+@multiple.route('/sor', methods=['GET', 'POST'])
+def sor():
+    if request.method == 'POST':
+        size = int(request.form.get('size'))
+        rel = int(request.form.get('rel'))
+        tol = float(request.form.get('tol'))
+        niter = int(request.form.get('niter'))
+
+        a = np.array(request.form.getlist('A0'), dtype='float64')
+        for i in range(size-1):
+            a = np.append(a, np.asarray(request.form.getlist('A'+str(i+1)), dtype='float64'))
+
+        x0 = np.array(request.form.get('x0'), dtype='float64')
+        for i in range(size-1):
+            x0 = np.append(x0, float(request.form.get('x'+str(i+1))))
+
+        b = np.array(request.form.get('b0'), dtype='float64')
+        for i in range(size-1):
+            b = np.append(b, float(request.form.get('b'+str(i+1))))
+        
+        result = jacobi_seid(x0, a, b, tol, niter, 2, size, rel)
         return render_template("jacobi_seidel.html", T=result[0], C=result[1], niter = result[2], sol = result[3], E = result[4], bol = 1, size=np.size(result[0]))
     else:
         return render_template("jacobi_seidel.html", bol = 0)

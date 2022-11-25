@@ -6,6 +6,7 @@ interpol = Blueprint('interpol', __name__)
 from .metodos.Vandermonde import vander
 from .metodos.NewtonDifDiv import NewtonDifDiv
 from .metodos.lagrange import lagi
+from .metodos.spline import Spline
 
 @interpol.route('/vandermonde', methods=['GET', 'POST'])
 def vandermonde():
@@ -49,3 +50,20 @@ def lagrange():
         return render_template("lagrange.html", result=result, bol = 1)
     else:
         return render_template("lagrange.html", bol = 0)
+
+@interpol.route('/spline', methods=['GET', 'POST'])
+def spline():
+    if request.method == 'POST':
+
+        size = int(request.form.get('size'))
+
+        met = int(request.form.get('met'))
+
+        x = np.array(request.form.getlist('x'), dtype='float64')
+        
+        y = np.array(request.form.getlist('y'), dtype='float64')
+
+        result = Spline(x, y, met)
+        return render_template("spline.html", result=result, n=size, bol = 1)
+    else:
+        return render_template("spline.html", bol = 0)
