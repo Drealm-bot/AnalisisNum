@@ -42,11 +42,10 @@ def gauss_par():
         for i in range(size-1):
             b = np.append(b, float(request.form.get('b'+str(i+1))))
 
-        x, mark, Ab = gaussSim(a, b, size,1)
-        result = gauss_form(x, mark, Ab)
-        return render_template("gauss_par.html", resultado = str(result))
+        result = gaussSim(a, b, size,1)
+        return render_template("gauss_par.html", x = result[0], Ab = result[2], n = size, bol = 1)
     else:
-        return render_template("gauss_par.html")
+        return render_template("gauss_par.html", bol = 0)
 
 @multiple.route('/gauss-tot', methods=['GET', 'POST'])
 def gauss_tot():
@@ -61,11 +60,10 @@ def gauss_tot():
         for i in range(size-1):
             b = np.append(b, float(request.form.get('b'+str(i+1))))
 
-        x, mark, Ab = gaussSim(a, b, size,2)
-        result = gauss_form(x, mark, Ab)
-        return render_template("gauss_tot.html", resultado = str(result))
+        result = gaussSim(a, b, size,2)
+        return render_template("gauss_tot.html", x = result[0], mark = result[1], Ab = result[2], n = size, bol = 1)
     else:
-        return render_template("gauss_tot.html")
+        return render_template("gauss_tot.html", bol = 0)
 
 @multiple.route('/LU-sim', methods=['GET', 'POST'])
 def LU_sim():

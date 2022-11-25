@@ -28,9 +28,9 @@ def bisection():
         tol = request.form.get('tol')
         niter = request.form.get('niter')
         result = biseccion(a, b, tol, niter, fun)
-        return render_template("bisection.html", n=result[0], a=result[1], b=result[2], m=result[3], fm=result[4], E=result[5])
+        return render_template("bisection.html", n=result[0], a=result[1], b=result[2], m=result[3], fm=result[4], E=result[5], bol = 1)
     else:
-        return render_template("bisection.html")
+        return render_template("bisection.html", bol = 0)
 
 @singular.route('/false_position', methods=['GET', 'POST'])
 def false_position():
