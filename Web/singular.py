@@ -14,9 +14,9 @@ def bus_inc():
         delta = request.form.get('delta')
         niter = request.form.get('niter')
         result = bi(x1,delta, niter, fun)
-        return render_template("bus_inc.html", resultado = str(result))
+        return render_template("bus_inc.html", resultado = str(result), bol = 1)
     else:
-        return render_template("bus_inc.html")
+        return render_template("bus_inc.html", bol = 0)
 
         
 @singular.route('/bisection', methods=['GET', 'POST'])
@@ -41,9 +41,9 @@ def false_position():
         tol = request.form.get('tol')
         niter = request.form.get('niter')
         result = regla_falsa(a, b, tol, niter, fun)
-        return render_template("false_position.html", n=result[0], a=result[1], b=result[2], m=result[3], fm=result[4], E=result[5])
+        return render_template("false_position.html", n=result[0], a=result[1], b=result[2], m=result[3], fm=result[4], E=result[5], bol = 1)
     else:
-        return render_template("false_position.html")
+        return render_template("false_position.html", bol = 0)
 
 @singular.route('/fixed_point', methods=['GET', 'POST'])
 def fixed_point():
@@ -54,9 +54,9 @@ def fixed_point():
         tol = request.form.get('tol')
         niter = request.form.get('niter')
         result = punto_fijo(x0, tol, niter, f, g)
-        return render_template("fixed_point.html", n=result[0], xn=result[1], fn=result[2], gn=result[3], E=result[4])
+        return render_template("fixed_point.html", n=result[0], xn=result[1], fn=result[2], gn=result[3], E=result[4], bol = 1)
     else:
-        return render_template("fixed_point.html")
+        return render_template("fixed_point.html", bol = 0)
 
 @singular.route('/newton-raphson', methods=['GET', 'POST'])
 def newton_rph():
@@ -67,9 +67,9 @@ def newton_rph():
         tol = request.form.get('tol')
         niter = request.form.get('niter')
         result = newton_raphson(x0, tol, niter, f, df)
-        return render_template("newton_raphson.html", n=result[0], xn=result[1], fn=result[2], E=result[3])
+        return render_template("newton_raphson.html", n=result[0], xn=result[1], fn=result[2], E=result[3], bol = 1)
     else:
-        return render_template("newton_raphson.html")
+        return render_template("newton_raphson.html", bol = 0)
 
 @singular.route('/secant', methods=['GET', 'POST'])
 def secant():
@@ -81,9 +81,9 @@ def secant():
         tol = request.form.get('tol')
         niter = request.form.get('niter')
         result = secante(x0, x1, tol, niter, fun)
-        return render_template("secant.html", n=result[0], xn=result[1], fn=result[2], E=result[3])
+        return render_template("secant.html", n=result[0], xn=result[1], fn=result[2], E=result[3], bol = 1)
     else:
-        return render_template("secant.html")
+        return render_template("secant.html", bol = 0)
 
 @singular.route('/newtonMR', methods=['GET', 'POST'])
 def newtonMR():
@@ -95,9 +95,9 @@ def newtonMR():
         tol = request.form.get('tol')
         niter = request.form.get('niter')
         result = newtonRM(x0, tol, niter, fun, df, df2)
-        return render_template("newtonMR.html", n=result[0], xn=result[1], fn=result[2], E=result[3])
+        return render_template("newtonMR.html", n=result[0], xn=result[1], fn=result[2], E=result[3], bol = 1)
     else:
-        return render_template("newtonMR.html")
+        return render_template("newtonMR.html", bol = 0)
 
 @singular.route('/graph', methods=['GET', 'POST'])
 def graph():
