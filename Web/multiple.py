@@ -79,9 +79,9 @@ def LU_sim():
             b = np.append(b, float(request.form.get('b'+str(i+1))))
         
         result = LU(a, b, size, 0)
-        return render_template("LU_sim.html", x=result[0], L = result[1], U = result[2], size = str(size))
+        return render_template("LU_sim.html", x=result[0], L = result[1], U = result[2], size = str(size), bol = 1)
     else:
-        return render_template("LU_sim.html")
+        return render_template("LU_sim.html", bol = 0)
 
 @multiple.route('/LU-par', methods=['GET', 'POST'])
 def LU_par():
@@ -97,9 +97,9 @@ def LU_par():
             b = np.append(b, float(request.form.get('b'+str(i+1))))
         
         result = LU(a, b, size, 1)
-        return render_template("LU_par.html", x=result[0], L = result[1], U = result[2], size = str(size))
+        return render_template("LU_par.html", x=result[0], L = result[1], U = result[2], size = str(size), bol = 1)
     else:
-        return render_template("LU_par.html")
+        return render_template("LU_par.html", bol = 0)
 
 @multiple.route('/LU-little', methods=['GET', 'POST'])
 def LU_little():
@@ -115,9 +115,9 @@ def LU_little():
             b = np.append(b, float(request.form.get('b'+str(i+1))))
         
         result = dirLU(a, b, size, 0)
-        return render_template("LU_little.html", L = result[0], U = result[1], x = result[2], size = str(size))
+        return render_template("LU_little.html", L = result[0], U = result[1], x = result[2], size = str(size), bol = 1)
     else:
-        return render_template("LU_little.html")
+        return render_template("LU_little.html", bol = 0)
 
 @multiple.route('/LU-crout', methods=['GET', 'POST'])
 def LU_crout():
@@ -133,9 +133,9 @@ def LU_crout():
             b = np.append(b, float(request.form.get('b'+str(i+1))))
         
         result = dirLU(a, size, 1)
-        return render_template("LU_crout.html", L = result[0], U = result[1], x = result[2], size = str(size))
+        return render_template("LU_crout.html", L = result[0], U = result[1], x = result[2], size = str(size), bol = 1)
     else:
-        return render_template("LU_crout.html")
+        return render_template("LU_crout.html", bol = 0)
 
 @multiple.route('/LU-cholesky', methods=['GET', 'POST'])
 def LU_cholesky():
@@ -151,9 +151,9 @@ def LU_cholesky():
             b = np.append(b, float(request.form.get('b'+str(i+1))))
         
         result = dirLU(a, size, 2)
-        return render_template("LU_cholesky.html", L = result[0], U = result[1], x = result[2], size = str(size))
+        return render_template("LU_cholesky.html", L = result[0], U = result[1], x = result[2], size = str(size), bol = 1)
     else:
-        return render_template("LU_cholesky.html")
+        return render_template("LU_cholesky.html", bol = 0)
 
 @multiple.route('/jacobi-seidel', methods=['GET', 'POST'])
 def jacobi_seidel():
