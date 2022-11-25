@@ -29,9 +29,10 @@
                 <br />
             </form>
         </div>
-        <div class="col-md-4 col-lg-4" style="background-color:white">
+        <div class="col-md-2 col-lg-2" style="background-color:white">
         </div>
-        <div class="col-md-5 col-lg-10" style="background-color:lightgray">
+        {% if bol > 0 %}
+        <div class="col-md-5 col-lg-5" style="background-color:lightgray">
             <table>                
                 
                 <colgroup>
@@ -55,13 +56,10 @@
                 </tr>    
                 {% endfor %}
             </table>
-            
-            {% endblock %}
         </div>
+        {% endif %}
     </div>
+
     
 </div>
-
-
-
-<br>
+{% endblock %}
