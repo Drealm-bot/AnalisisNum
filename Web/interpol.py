@@ -3,10 +3,7 @@ import numpy as np
 
 interpol = Blueprint('interpol', __name__)
 
-from .metodos.Vandermonde import vander
-from .metodos.NewtonDifDiv import NewtonDifDiv
-from .metodos.lagrange import lagi
-from .metodos.spline import Spline
+from .metodos.Interpol import *
 
 @interpol.route('/vandermonde', methods=['GET', 'POST'])
 def vandermonde():

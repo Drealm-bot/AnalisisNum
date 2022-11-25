@@ -29,8 +29,15 @@
         <button type="submit" class="btn btn-primary">Evaluar</button>
         <br />
       </div>
-      <div class="col-md-6 col-lg-6" style="background-color:white">
+      {% if bol > 0 %}
+      <div class="col-md-6 col-lg-6" style="background-color:lightcyan">
+        <h3 align="center">Gráfica</h3>
+        <br>
+        <p style="text-align:center;">
+          <img src="{{ result[4] }}" alt="User Image">
+        </p>
       </div>
+      {% endif %}
     </div>
   </form>
   <br>

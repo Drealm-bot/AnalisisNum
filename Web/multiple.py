@@ -3,9 +3,7 @@ import numpy as np
 
 multiple = Blueprint('multiple', __name__)
 
-from .metodos.gausspiv import *
-from .metodos.LU import *
-from .metodos.jacobiSeid import *
+from .metodos.Multiples import *
 
 def gauss_form(x, mark, Ab):
     return f'Ab = {Ab} \nMark = {mark} \nX = {x}'
