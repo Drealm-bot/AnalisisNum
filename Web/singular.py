@@ -1,8 +1,10 @@
-from flask import Blueprint, render_template, request
+from flask import Flask, Blueprint, render_template, request
+import os
 
 singular = Blueprint('singular', __name__)
 
 from .metodos.Singulares import bi, biseccion, regla_falsa, punto_fijo, newton_raphson, secante, newtonRM
+from .metodos.Graficador import graficador
 
 @singular.route('/bus-inc', methods=['GET', 'POST'])
 def bus_inc():
@@ -73,6 +75,7 @@ def newton_rph():
 def secant():
     if request.method == 'POST':
         fun = request.form.get('fun')
+        print(type(fun))
         x0 = request.form.get('x0')
         x1 = request.form.get('x1')
         tol = request.form.get('tol')
@@ -95,3 +98,15 @@ def newtonMR():
         return render_template("newtonMR.html", n=result[0], xn=result[1], fn=result[2], E=result[3])
     else:
         return render_template("newtonMR.html")
+
+@singular.route('/graph', methods=['GET', 'POST'])
+def graph():
+    if request.method == 'POST':
+        fun = request.form.get('fun')
+        grafica = graficador(fun)
+        return render_template("graph.html", grafica=grafica)
+    else:
+        return render_template("graph.html")
+
+
+
