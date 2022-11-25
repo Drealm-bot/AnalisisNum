@@ -18,7 +18,7 @@ def vandermonde():
         y = np.array(request.form.getlist('y'), dtype='float64')
 
         result = vander(x, y, size, 101)
-        return render_template("vandermonde.html", D=result[0], coef=result[1], polin=result[2], n = size, bol = 1)
+        return render_template("vandermonde.html", D=result[0], coef=result[1], polin=result[2], grafica=result[3], n = size, bol = 1)
     else:
         return render_template("vandermonde.html", bol = 0)
 

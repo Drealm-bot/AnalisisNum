@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Jacobi{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <br />
+    <h3 align="left">SOR</h3>
+    <br />
+    <form method="POST">  
+    <div class="row">
+      <div class="col-md-4 col-lg-4" style="background-color:white">  
+        <label for="matrixA">A</label>
+        <br />
+        <div id="matrixA"> 
+        </div>
+        <br />
+        <input type="number" id="size" name="size" min="2" max="6" value="4" onchange="matrixX0Create()">
+        <label for="rel">Factor de relajación
+            <input type="text" class="form-control" id="rel" name="rel" placeholder="Ingrese número"/>
+        </label>
+        <label for="tol">Tolerancia
+            <input type="text" class="form-control" id="tol" name="tol" placeholder="Ingrese número"/>
+        </label>
+        <label for="tol">#iteraciones
+          <input type="text" class="form-control" id="niter" name="niter" placeholder="Ingrese número"/>
+      </label>
+        <br />
+        <button type="submit" class="btn btn-primary">Evaluar</button>
+        <br />
+      </div>
+      <div class="col-md-1 col-lg-1" style="background-color:white">
+        <label for="matrixA">x0</label>
+        <br />
+        <div id="matrixX0">
+        </div>
+      </div>
+      <div class="col-md-1 col-lg-1" style="background-color:white">
+        <label for="matrixA">b</label>
+        <br />
+        <div id="matrixb"> 
+        </div>
+      </div>
+      <div class="col-md-1 col-lg-1" style="background-color:white">
+      </div>
+  </form>
+  {% if bol > 0 %}
+  <div class="col-md-7 col-lg-7" style="background-color:lightgray">
+    <table>      
+        <tr>
+            <colgroup>
+            
+            <colgroup span="1" style="background: rgba(0, 255, 128, 0.3); border: 1px solid rgba(200, 100, 0, 0.3);">
+              
+            <colgroup span="1" style="background: rgba(255, 0, 128, 0.3); border: 1px solid rgba(200, 100, 0, 0.3);">  
+      
+            <th> niter </th>
+            <th> Sol </th>
+            <th> E </th>
+      
+        </tr>
+        {% for i in niter %}
+        <tr>
+            <td> {{ niter[i] }} </td>
+            <td> {{ sol[i] }} </td>
+            <td> {{ E[i] }} </td>
+        </tr>    
+        {% endfor %}
+    </table>
+  </div>
+  <div class="col-md-5 col-lg-5" style="background-color:lightgray">
+    <table>
+      <tr>
+        <colgroup>
+
+        <th>T=
+          <br>{% for k in range(size) %}
+              {{ T[k] }}<br>
+              {% endfor %}
+        </th>
+      </tr>
+      <tr>
+        <th>C=
+          <br>{% for k in range(size) %}
+              {{ C[k] }}<br>
+              {% endfor %}
+        </th>
+      </tr>
+    </table>
+  </div>
+  {% endif %}
+
+  <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='matrixX0.js') }}"
+    >
+  </script>
+
+{% endblock %}

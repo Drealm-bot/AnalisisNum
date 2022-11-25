@@ -11,20 +11,26 @@ def graficador(polinomio):
     #y = x+1
     yi = []
     yi = eval(polinomio)
-    print("polinomi")
-    print(polinomio)
     print(yi)
-    #print(y)
-    print(type(yi))
-    #print(type(y))
-    print('Values of x: ', x)
-    print('Values of y: ', yi)
     plt.plot(x, yi)
-    plt.title("Identity Function")
-    plt.xlabel("Values of x")
-    plt.ylabel("Values of y")
+    plt.title(polinomio)
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
     plt.show
-    plt.savefig("grafica.png")
+    plt.savefig("Web/static/grafica.png")
     plt.clf()
-    grafica = os.path.join('grafica.png')
+    grafica = os.path.join("/Web","/static", 'grafica.png')
+    return grafica
+
+def graficadorInt(polinomio, xi,fi,xin,yin):
+    plt.plot(xi,fi,'o', label='[xi,fi]')
+    plt.plot(xin,yin, label='p(x)')
+    plt.xlabel('xi')
+    plt.ylabel('fi')
+    plt.legend()
+    plt.title(polinomio)
+    plt.show()
+    plt.savefig("Web/static/grafica.png")
+    plt.clf()
+    grafica = os.path.join("/Web","/static", 'grafica.png')
     return grafica

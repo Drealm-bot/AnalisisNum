@@ -3,7 +3,7 @@ import numpy as np
 import math
 import copy
 
-def jacobi_seid(x0, A, b, Tol, niter, met, n):
+def jacobi_seid(x0, A, b, Tol, niter, met, n, w):
     c=0
     error=Tol+1
     A=np.asmatrix(np.split(A,n), dtype='float64')

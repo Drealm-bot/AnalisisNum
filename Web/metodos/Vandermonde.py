@@ -1,12 +1,12 @@
-# El polinomio de interpolación
 import numpy as np
 import sympy as sym
 import matplotlib.pyplot as plt
 
+from  .Graficador import *
+
 def vander(xi, B, n, nit):
-    print(B)
+
     D = np.zeros(shape=(n,n),dtype ='float64')
-    print(D)
     for i in range(0,n,1):
         for j in range(0,n,1):
             potencia = (n-1)-j 
@@ -24,8 +24,9 @@ def vander(xi, B, n, nit):
     b = np.max(xi)
     xin = np.linspace(a,b,nit)
     yin = px(xin)
+    grafica = graficadorInt(polinomio, xi, B, xin, yin)
 
-    return D, coeficiente, polinomio
+    return D, coeficiente, polinomio, grafica
 
 #sym.pprint(polinomio)
 #
